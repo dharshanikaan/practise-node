@@ -6,6 +6,7 @@ const server=pro.createServer((req,res)=>{
     res.write('<body><h1>Dharshanika</h1></body>')
     res.write('</html>')
     res.end()
+    process.exit();
 });
 
-server.listen(3000);
+server.listen(3000)
