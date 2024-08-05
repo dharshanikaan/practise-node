@@ -1,0 +1,21 @@
+{
+  "name": "practise-node",
+  "version": "1.0.0",
+  "description": "",
+  "main": "pro.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start":"node pro.js",
+    "start-server":"node pro.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/dharshanikaan/practise-node.git"
+  },
+  "author": "dharshanika",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/dharshanikaan/practise-node/issues"
+  },
+  "homepage": "https://github.com/dharshanikaan/practise-node#readme"
+}
