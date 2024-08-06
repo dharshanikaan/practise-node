@@ -1,17 +1,20 @@
-const http=require('http');
-
-const express=require('express')
+const express=require('express');
+const bodyParsed=require('body-parser');
 
 const app=express();
-app.use((req,res,next)=>{
-    console.log("first");
-    next();
-});
-app.use((req,res,next)=>{
-    console.log("second");
-  
-    res.send({key1:'value'})
-});
 
-const server=http.createServer(app)
+app.use(bodyParsed.urlencoded({extended:false}));
+
+app.use('/add-product',(req,res,next)=>{
+    res.send('<form action="/product" method="POST"><input type="text" name="title"><input type="text" name="size"><button type="submit">add</button></form>')
+});
+app.use('/product',(req,res,next)=>{
+    console.log(req.body.title);
+    console.log(req.body.size);
+    res.redirect('/');
+   
+});
+app.use('/',(req,res,next)=>{
+    res.send('<h1>success</h1>')
+})
 app.listen(3000)
