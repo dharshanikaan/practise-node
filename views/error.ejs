@@ -3,8 +3,8 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Error</title>
-    <link rel="stlyesheet" href="/css/main.css">
+    <title><%= pageTitle %></title>
+    <link rel="stylesheet" href="/css/main.css">
 </head>
 <body>
     <header>
@@ -16,8 +16,9 @@
             </ul>
         </nav>
     </header>
-    <main>
-        <h1>404 Page Not Found</h1>
+    <main class="main">
+        <h1><%= pageTitle %></h1>
+        <p><%= errorMessage %></p>
     </main>
 </body>
 </html>

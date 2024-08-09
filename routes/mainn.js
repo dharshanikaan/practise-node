@@ -1,17 +1,8 @@
-const express=require('express');
-const path=require('path')
+const express = require('express');
+const router = express.Router();
+const productController = require('../controllers/product');
 
-const rout=express.Router();
-const root=require('../util/path');
+router.get('/add-product', productController.getproduct);
+router.post('/product', productController.postproduct);
 
-rout.get('/add-product',(req,res,next)=>{
-    res.sendFile(path.join(root,'views','mainn.html'));
-});
-
-rout.post('/product',(req,res,next)=>{
-    console.log(req.body);
-    res.redirect('/');
-   
-});
-
-module.exports=rout;
+module.exports = router;
