@@ -1,17 +1,8 @@
-const express=require('express');
-const path=require('path')
+const express = require('express');
+const router = express.Router();
+const productController = require('../controllers/product');
 
-const rout=express.Router();
-const root=require('../util/path');
+router.get('/contact', productController.contact);
+router.post('/success', productController.success)
 
-rout.get('/contact',(req,res,next)=>{
-    res.sendFile(path.join(root,'views','contact.html'));
-});
-
-rout.post('/success',(req,res,next)=>{
-    console.log(req.body);
-    res.sendFile(path.join(root,'views','succes.html'));
-   
-});
-
-module.exports=rout;
+module.exports = router;

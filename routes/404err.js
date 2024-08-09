@@ -1,11 +1,7 @@
-const express=require('express')
-const path=require('path')
+const express = require('express');
+const router = express.Router();
+const productController = require('../controllers/product');
 
-const rout=express.Router();
-const root=require('../util/path');
+router.use(productController.error);
 
-rout.use((req,res,next)=>{
-    res.status(404).sendFile(path.join(root,'views','404err.html'))
-});
-
-module.exports=rout
+module.exports = router;
