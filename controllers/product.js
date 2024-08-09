@@ -1,27 +1,30 @@
-const path = require('path');
+const Product = require('../models/product'); // Adjust path if necessary
 
 exports.getproduct = (req, res, next) => {
-    res.render('add-product', { pageTitle: 'Add Product' }); // Ensure 'add-product.ejs' is in views folder
+    res.render('add-product', { pageTitle: 'Add Product' });
 };
 
 exports.postproduct = (req, res, next) => {
-    console.log(req.body);
+    const title = req.body.title; // Adjust based on your form input name
+    const product = new Product(title);
+    product.save();
     res.redirect('/');
 };
 
 exports.getsub = (req, res, next) => {
-    res.render('sub', { pageTitle: 'Subscription' }); // Ensure 'sub.ejs' is in views folder
+    const products = Product.fetchAll();
+    res.render('sub', { pageTitle: 'Subscription', products: products });
 };
 
 exports.contact = (req, res, next) => {
-    res.render('contact', { pageTitle: 'Contact Us' }); // Ensure 'contact.ejs' is in views folder
+    res.render('contact', { pageTitle: 'Contact Us' });
 };
 
 exports.success = (req, res, next) => {
     console.log(req.body);
-    res.render('success', { pageTitle: 'Success' }); // Ensure 'success.ejs' is in views folder
+    res.render('success', { pageTitle: 'Success' });
 };
 
 exports.error = (req, res, next) => {
-    res.status(404).render('error', { pageTitle: 'Page Not Found' }); // Ensure '404.ejs' is in views folder
+    res.status(404).render('err', { pageTitle: 'Page Not Found' });
 };
